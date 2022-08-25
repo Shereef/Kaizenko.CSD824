@@ -1,6 +1,8 @@
 namespace Kaizenko.VendingMachine.Controllers
 {
-    public class PaymentProcessor
+
+
+    public class PaymentProcessor : IPaymentProcessor
     {
         public PaymentProcessor()
         {
@@ -25,7 +27,7 @@ namespace Kaizenko.VendingMachine.Controllers
 
         public double GetBalance()
         {
-            return Balance ;
+            return Balance;
         }
 
         public bool IsPaymentMade(double price)

@@ -9,14 +9,14 @@ namespace Kaizenko.VendingMachine.Tests
 
         public VendingMachineControllerTests()
         {
-            vendingMachineController = new();
+            vendingMachineController = new(new PaymentProcessor());
         }
 
         [SetUp]
         public void Setup()
         {
             // Common arrange aka Given
-            vendingMachineController = new();
+            vendingMachineController = new(new PaymentProcessor());
         }
 
         [Test]

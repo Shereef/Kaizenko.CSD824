@@ -4,10 +4,10 @@ namespace Kaizenko.VendingMachine.Controllers
 {
     public class VendingMachineController
     {
-        PaymentProcessor paymentProcessor ;
-        public VendingMachineController()
+        IPaymentProcessor paymentProcessor ;
+        public VendingMachineController(IPaymentProcessor paymentProcessor )
         {
-            paymentProcessor = new();
+            this.paymentProcessor = paymentProcessor;
         }
 
         public double ReleaseChange()
