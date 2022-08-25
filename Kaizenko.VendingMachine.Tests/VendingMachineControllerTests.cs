@@ -6,6 +6,12 @@ namespace Kaizenko.VendingMachine.Tests
     public class VendingMachineControllerTests
     {
         VendingMachineController vendingMachineController;
+
+        public VendingMachineControllerTests()
+        {
+            vendingMachineController = new();
+        }
+
         [SetUp]
         public void Setup()
         {
