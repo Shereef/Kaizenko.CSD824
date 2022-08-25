@@ -4,29 +4,29 @@ namespace Kaizenko.VendingMachine.Controllers
 {
     public class VendingMachineController
     {
+        PaymentProcessor paymentProcessor ;
         public VendingMachineController()
         {
-            QuarterCount = 0;
+            paymentProcessor = new();
         }
 
-        int QuarterCount { get; set; }
         public double ReleaseChange()
         {
-            double change = QuarterCount * 0.25;
-            QuarterCount = 0;
+            double change = paymentProcessor.GetBalance();
+            paymentProcessor.ResetBalance();
             return change;
         }
 
-        public void AddMoney()
+        public void InsertQuarter()
         {
-            QuarterCount++;
+            paymentProcessor.ProcessPayment(0.25);
         }
 
         public Product? BuyProduct()
         {
-            if (QuarterCount >= 2)
+            if (paymentProcessor.IsPaymentMade(0.5))
             {
-                QuarterCount -= 2;
+                paymentProcessor.DecreaseBalance(0.5);
                 return new Product();
             }
             return null;
