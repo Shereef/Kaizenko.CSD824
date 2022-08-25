@@ -1,6 +1,6 @@
 namespace Kaizenko.VendingMachine.Controllers
 {
-    internal class PaymentProcessor
+    public class PaymentProcessor
     {
         public PaymentProcessor()
         {
@@ -8,27 +8,27 @@ namespace Kaizenko.VendingMachine.Controllers
         }
 
         double Balance { get; set; }
-        internal void ProcessPayment(double amount)
+        public void ProcessPayment(double amount)
         {
             Balance += amount;
         }
 
-        internal void ResetBalance()
+        public void ResetBalance()
         {
             Balance = 0;
         }
 
-        internal void DecreaseBalance(double amount)
+        public void DecreaseBalance(double amount)
         {
             Balance -= amount;
         }
 
-        internal double GetBalance()
+        public double GetBalance()
         {
             return Balance ;
         }
 
-        internal bool IsPaymentMade(double price)
+        public bool IsPaymentMade(double price)
         {
             return Balance >= price;
         }
